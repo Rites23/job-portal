@@ -1,45 +1,9 @@
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'job_listings_experience_level') THEN
-        CREATE TYPE "public"."job_listings_experience_level" AS ENUM('junior', 'mid-level', 'senior');
-    END IF;
-END$$;
---> statement-breakpoint
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'job_listings_status') THEN
-        CREATE TYPE "public"."job_listings_status" AS ENUM('draft', 'published', 'delisted');
-    END IF;
-END$$;
---> statement-breakpoint
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'job_listings_type') THEN
-        CREATE TYPE "public"."job_listings_type" AS ENUM('internship', 'part-time', 'full-time');
-    END IF;
-END$$;
---> statement-breakpoint
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'job_listings_location_requirement') THEN
-        CREATE TYPE "public"."job_listings_location_requirement" AS ENUM('in-office', 'hybrid', 'remote');
-    END IF;
-END$$;
---> statement-breakpoint
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'job_listings_wage_interval') THEN
-        CREATE TYPE "public"."job_listings_wage_interval" AS ENUM('hourly', 'yearly');
-    END IF;
-END$$;
---> statement-breakpoint
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'job_listing_applications_stage') THEN
-        CREATE TYPE "public"."job_listing_applications_stage" AS ENUM('denied', 'applied', 'interested', 'interviewed', 'hired');
-    END IF;
-END$$;
---> statement-breakpoint
+CREATE TYPE "public"."job_listings_experience_level" AS ENUM('junior', 'mid-level', 'senior');--> statement-breakpoint
+CREATE TYPE "public"."job_listings_status" AS ENUM('draft', 'published', 'delisted');--> statement-breakpoint
+CREATE TYPE "public"."job_listings_type" AS ENUM('internship', 'part-time', 'full-time');--> statement-breakpoint
+CREATE TYPE "public"."job_listings_location_requirement" AS ENUM('in-office', 'hybrid', 'remote');--> statement-breakpoint
+CREATE TYPE "public"."job_listings_wage_interval" AS ENUM('hourly', 'yearly');--> statement-breakpoint
+CREATE TYPE "public"."job_listing_applications_stage" AS ENUM('denied', 'applied', 'interested', 'interviewed', 'hired');--> statement-breakpoint
 CREATE TABLE "users" (
 	"id" varchar PRIMARY KEY NOT NULL,
 	"name" varchar NOT NULL,
