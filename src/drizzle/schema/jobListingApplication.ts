@@ -9,7 +9,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { JobListingTable } from "./jobListing";
 import { UserTable } from "./user";
-import { createdAt, updatedAt } from "../schemaHelpers";
+import { createdAt, updatedAt, } from "../schemaHelpers";
 import { relations } from "drizzle-orm";
 export const applicationStages = [
   "denied",

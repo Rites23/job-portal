@@ -35,7 +35,7 @@ export const organizationUserSettingsRelations = relations(
       references: [UserTable.id],
     }),
     organization: one(OrganizationTable, {
-      fields: [OrganizationUserSettingsTable.userId],
+      fields: [OrganizationUserSettingsTable.organizationId], // Fix: this should refer to organizationId
       references: [OrganizationTable.id],
     }),
   })

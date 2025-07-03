@@ -12,7 +12,6 @@ import { createdAt, id, updatedAt } from "../schemaHelpers";
 import { OrganizationTable } from "./organization";
 import { relations } from "drizzle-orm";
 import { JobListingApplicationTable } from "./jobListingApplication";
-
 export const wageIntervals = ["hourly", "yearly"] as const;
 export type WageInterval = (typeof wageIntervals)[number];
 export const wageIntervalEnum = pgEnum(

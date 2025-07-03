@@ -76,10 +76,11 @@ export function SidebarUserButtonClient({ user }: { user: User }) {
 }
 
 function UserInfo({ imageUrl, email, name }: User) {
-  const nameInitials = name
+  const safeName = name ?? ""; // fallback if name is undefined
+  const nameInitials = safeName
     .split(" ")
     .slice(0, 2)
-    .map((str) => str[0])
+    .map((str) => str?.[0] ?? "")
     .join("");
 
   return (
