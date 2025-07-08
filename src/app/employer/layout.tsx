@@ -1,12 +1,23 @@
 import { AppSidebar } from "@/components/sidebar/AppSidebar";
 import { SidebarNavMenuGroup } from "@/components/sidebar/SidebarNavMenuGroup";
 import { SidebarGroup, SidebarGroupLabel } from "@/components/ui/sidebar";
-import { SidebarUserButton } from "@/features/users/components/SidebarUserButton";
 import { ClipboardListIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { SidebarOrganizationButton } from "@/features/organizations/components/SidebarOrganizationButton";
+import { ReactNode, Suspense } from "react";
+import { getCurrentOrganization } from "@/services/clerk/lib/getCurrentAuth";
+import { redirect } from "next/navigation";
 
-const EmployerLayout = ({ children }: { children: ReactNode }) => {
+export default function EmployerLayout({ children }: { children: ReactNode }) {
+  return (
+    <Suspense>
+      <LayoutSuspense>{children}</LayoutSuspense>
+    </Suspense>
+  );
+}
+const LayoutSuspense = async ({ children }: { children: ReactNode }) => {
+  const { orgId } = await getCurrentOrganization();
+  if (orgId === null) return redirect("/organizations/select");
   return (
     <AppSidebar
       content={
@@ -28,11 +39,9 @@ const EmployerLayout = ({ children }: { children: ReactNode }) => {
           />
         </>
       }
-      footerButton={<SidebarUserButton />}
+      footerButton={<SidebarOrganizationButton />}
     >
       {children}
     </AppSidebar>
   );
 };
-
-export default EmployerLayout;
