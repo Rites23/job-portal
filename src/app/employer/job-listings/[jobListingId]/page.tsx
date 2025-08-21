@@ -10,6 +10,8 @@ import { Badge } from "@/components/ui/badge";
 import { JobListingBadges } from "@/features/jobListings/components/JobListingBadges";
 import { formatJobListingStatus } from "@/features/jobListings/lib/formatters";
 import { Button } from "@/components/ui/button";
+import { MarkdownPartial } from "@/components/markdown/MarkdownPartial";
+import { MarkdownRenderer } from "@/components/markdown/MarkdownRenderer";
 import Link from "next/link";
 type Props = {
   params: { jobListingId: string };
@@ -44,16 +46,25 @@ async function SuspendedPage({ params }: Props) {
             <Badge>{formatJobListingStatus(jobListing.status)}</Badge>
             <JobListingBadges jobListing={jobListing} />
           </div>
-
-          <div className="flex items-center gap-2 mt-2 empty:-mt-4">
-            <Button asChild variant="outline">
-              <Link href={`/employer/job-listings/${jobListing.id}/edit`}>
-                Edit
-              </Link>
-            </Button>
-          </div>
+        </div>
+        <div className="flex items-center gap-2 mt-2 empty:-mt-4">
+          <Button asChild variant="outline">
+            <Link href={`/employer/job-listings/${jobListing.id}/edit`}>
+              Edit
+            </Link>
+          </Button>
         </div>
       </div>
+      <MarkdownPartial
+        dialogMarkdown={<MarkdownRenderer source={jobListing.description} />}
+        mainMarkdown={
+          <MarkdownRenderer
+            className="prose-sm"
+            source={jobListing.description}
+          />
+        }
+        dialogTitle="Description"
+      />
     </div>
   );
 }

@@ -21,11 +21,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import {
   experienceLevels,
-  JobListingTable,
   jobListingTypes,
-  locationRequirementEnum,
   locationRequirements,
   wageIntervals,
 } from "@/drizzle/schema";
@@ -39,10 +38,9 @@ import { StateSelectItems } from "./StateSelectItems";
 import { MarkdownEditor } from "@/components/markdown/MarkdownEditor";
 import { Button } from "@/components/ui/button";
 import { LoadingSwap } from "@/components/LoadingSwap";
-import { Loader2Icon } from "lucide-react";
 import { createJobListing, updateJobListing } from "../actions/actions";
 import { toast } from "sonner";
-
+import { JobListingTable } from "@/drizzle/schema";
 const NONE_SELECT_VALUE = "none";
 
 export function JobListingForm({
@@ -76,16 +74,15 @@ export function JobListingForm({
       locationRequirement: "in-office",
     },
   });
-
   async function onSubmit(data: z.infer<typeof jobListingSchema>) {
-    
-    const res = await createJobListing(data);
-
+    const action = jobListing
+      ? updateJobListing.bind(null, jobListing.id)
+      : createJobListing;
+    const res = await action(data);
     if (res.error) {
       toast.error(res.message);
     }
   }
-
   return (
     <Form {...form}>
       <form
