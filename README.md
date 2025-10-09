@@ -62,7 +62,7 @@ src/
  └── prisma/           # Database schema
 ```
 
-🚀 Getting Started
+## 🚀 Getting Started
 
 1️⃣ Clone the Repository
 
@@ -98,7 +98,7 @@ npm run dev
 
 Open http://localhost:5173 to view the app.
 
-🧠 AI Features
+## 🧠 AI Features
 
 - Resume Summarization – Automatically generates concise, insightful CV summaries using GPT-4.
 
@@ -106,15 +106,28 @@ Open http://localhost:5173 to view the app.
 
 - AI-Powered Search – Uses semantic understanding to match users with the most suitable job listings.
 
-👨‍💻 Developer
+## 🧑‍💻 Developer
 
-Ritesh Balu
+**👤 Developed by:** [Ritesh Balu](https://github.com/Rites23)  
+💼 MERN Stack Web Developer  
+🚀 Passionate about building scalable, elegant, and client-focused digital products
+ 
+---
 
-💼 MERN Stack Web Developer
+## 📞 Contact
 
-🚀 Passionate about building scalable, elegant, and client-focused digital products that deliver real impact.
+If you’d like to collaborate or need a custom-built website for your business:
 
-🪪 License
+📧 **Email:** ritesh.balu@gmail.com   
 
-This is a personal project created for learning, experimentation, and portfolio development.
-All technologies — including AI (OpenAI GPT-4), Clerk, Inngest, and Next.js — are used in accordance with their respective licenses.
+---
+
+## 🏷️ License
+
+This project is a personal project for learning, experimentation, and portfolio purposes. 
+
+All AI, Clerk, Inngest, and Next.js tools are used according to their respective license. make this better.
+
+---
+
+© 2025 | Designed & Developed by [Ritesh Balu](https://github.com/Rites23)
