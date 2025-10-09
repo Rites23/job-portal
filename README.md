@@ -126,7 +126,7 @@ If you’d like to collaborate or need a custom-built website for your business:
 
 This project is a personal project for learning, experimentation, and portfolio purposes. 
 
-All AI, Clerk, Inngest, and Next.js tools are used according to their respective license. make this better.
+All AI, Clerk, Inngest, and Next.js tools are used according to their respective license. 
 
 ---
 
